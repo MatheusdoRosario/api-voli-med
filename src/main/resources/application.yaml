@@ -1,3 +1,8 @@
 spring:
   application:
     name: api
+
+  datasource:
+    url: jdbc:mysql://localhost/volimed_api
+    username: root
+    password: ${DB_PASSWORD}
