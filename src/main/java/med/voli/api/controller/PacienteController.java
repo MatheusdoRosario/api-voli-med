@@ -1,5 +1,6 @@
 package med.voli.api.controller;
 
+import med.voli.api.paciente.DadosCadastroPaciente;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/pacientes")
 public class PacienteController {
 
-    public void cadastrar() {
+    public void cadastrar(DadosCadastroPaciente dados) {
 
     }
 }
