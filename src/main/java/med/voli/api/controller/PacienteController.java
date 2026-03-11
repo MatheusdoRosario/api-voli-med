@@ -11,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
-
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
@@ -38,6 +36,7 @@ public class PacienteController {
     }
 
     @PutMapping
+    @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoPacientes dados) {
         var paciente = repository.getReferenceById(dados.id());
         paciente.atualizarInformacoes(dados);
@@ -45,9 +44,16 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
     public ResponseEntity excluir(@PathVariable Long id) {
         var paciente = repository.getReferenceById(id);
         paciente.excluir();
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id) {
+        var paciente = repository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
     }
 }
