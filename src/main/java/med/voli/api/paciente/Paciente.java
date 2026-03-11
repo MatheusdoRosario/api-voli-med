@@ -1,7 +1,6 @@
 package med.voli.api.paciente;
 
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -50,7 +49,7 @@ public class Paciente {
         }
     }
 
-    public void excluir(Long id) {
+    public void excluir() {
         this.ativo = false;
     }
 }
