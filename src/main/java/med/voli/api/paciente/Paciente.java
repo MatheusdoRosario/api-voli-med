@@ -49,7 +49,7 @@ public class Paciente {
         }
     }
 
-    public void excluir(Long id) {
+    public void excluir() {
         this.ativo = false;
     }
 }
